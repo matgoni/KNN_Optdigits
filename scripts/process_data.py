@@ -1,29 +1,29 @@
 class DATA:
-    def __init__(self, n_archivo, datos=None, valores=None, clases=None):
-        self.n_archivo = n_archivo
-        self.datos = datos if datos is not None else []
-        self.valores = valores if valores is not None else []
-        self.clases = clases if clases is not None else []
+    def __init__(self, file_name, data=None, values=None, classes=None):
+        self.file_name = file_name
+        self.data = data if data is not None else []
+        self.values = values if values is not None else []
+        self.classes = classes if classes is not None else []
 
-    def obtener_datos(self):
+    def get_data(self):
         try:
-            with open(self.n_archivo, 'r') as archivo:
-                self.datos = []
-                for linea in archivo:
+            with open(self.file_name, 'r') as file:
+                self.data = []
+                for line in file:
                     try:
-                        valores_str = linea.rstrip().split(',')
-                        valores_int = [int(valor) for valor in valores_str]
-                        self.datos.append(valores_int)
+                        values_str = line.rstrip().split(',')
+                        values_int = [int(value) for value in values_str]
+                        self.data.append(values_int)
                     except ValueError as e:
-                        print(f"Error al convertir los valores a enteros: {e}")
+                        print(f"Error converting values to integers: {e}")
         except FileNotFoundError as e:
-            print(f"Error al abrir el archivo: {e}")
+            print(f"Error opening file: {e}")
         except Exception as e:
-            print(f"Un error inesperado ocurrió: {e}")
+            print(f"An unexpected error occurred: {e}")
 
-    def separar_datos(self):
-        self.valores = []  
-        self.clases = []   
-        for arreglo in self.datos:
-            self.valores.append(arreglo[:-1])  
-            self.clases.append(arreglo[-1])  
+    def split_data(self):
+        self.values = []  
+        self.classes = []   
+        for array in self.data:
+            self.values.append(array[:-1])  
+            self.classes.append(array[-1])  
