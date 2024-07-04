@@ -59,9 +59,10 @@ class KNN:
         predicted_class = self.find_class(p)
         self.predicted_classes.append(predicted_class)
         if self.predicted_classes[-1] == true_class:
-            print(f"Point {i}: True class: {true_class}, predicted class: {self.predicted_classes[-1]}. Correct.")
+            result = f"Point {i}: True class: {true_class}, Predicted class: {self.predicted_classes[-1]}. Correct."
         else:
-            print(f"Point {i}: True class: {true_class}, predicted class: {self.predicted_classes[-1]}. Incorrect.")
+            result = f"Point {i}: True class: {true_class}, Predicted class: {self.predicted_classes[-1]}. Incorrect."
+        return result
     
     def calculate_accuracy(self, true_classes, k):
         correct_count = 0  
@@ -69,4 +70,6 @@ class KNN:
             if self.predicted_classes[i] == true_classes[i]:
                 correct_count += 1 
         accuracy = correct_count / len(self.predicted_classes) * 100
-        print(f"The accuracy of the KNN algorithm with k={k} is {accuracy:.2f}%.")
+        text = f"The accuracy of the KNN algorithm with k={k} is {accuracy:.2f}%."
+        print(text)
+        return text
