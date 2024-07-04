@@ -17,5 +17,5 @@ The dataset was previously divided into two parts: a training set with 3823 inst
 
 The results/ directory contains output files that include:
     
-    - Detailed results for each test point, indicating the predicted class and whether the prediction was correct or incorrect.
-    - Model accuracy metrics for different values of k.
+- Detailed results for each test point, indicating the predicted class and whether the prediction was correct or incorrect.
+- Model accuracy metrics for different values of k.
